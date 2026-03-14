@@ -1,3 +1,0 @@
-Ingresando email: testbook@yopmail.com
-Ingresando password: 123456
-Enviando formulario de login

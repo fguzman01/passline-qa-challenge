@@ -1,7 +1,0 @@
-Navegando a la página de login...
-Realizando login con usuario: testbook@yopmail.com
-Ingresando email: testbook@yopmail.com
-Ingresando password: 1234567
-Enviando formulario de login
-Validando error de autenticación...
-locator('//div[contains(@class,"alert") and contains(.,"Authentication Error")]/p')

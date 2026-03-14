@@ -10,3 +10,7 @@ node_modules/
 # Environment variables
 .env
 .env.local
+
+# Allure generated output
+allure-results/
+allure-report/
