@@ -8,24 +8,19 @@ export class BasePage {
     this.page = page;
   }
 
-  /**
-   * Navega a una ruta relativa dentro del sitio.
-   */
+  // ── Navegación ────────────────────────────────────────────────────────────
+
   async navigate(path: string): Promise<void> {
     //await this.page.goto(path);
     await this.page.goto(`${config.baseUrl}${path}`)
   }
 
-  /**
-   * Retorna el título de la página actual.
-   */
+  // ── Getters ───────────────────────────────────────────────────────────────
+
   async getTitle(): Promise<string> {
     return this.page.title();
   }
 
-  /**
-   * Retorna la URL de la página actual.
-   */
   getCurrentUrl(): string {
     return this.page.url();
   }

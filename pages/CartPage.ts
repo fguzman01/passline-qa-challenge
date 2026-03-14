@@ -35,6 +35,8 @@ export class CartPage extends BasePage {
     this.emptyCartMessage  = page.locator('//span[contains(normalize-space(.), "Your cart is empty")]');
   }
 
+  // ── Esperas ───────────────────────────────────────────────────────────────
+
   async waitUntilLoaded(): Promise<void> {
     await waitForVisible(this.dashboardTitle);
     await waitForVisible(this.cartTable);
@@ -46,11 +48,15 @@ export class CartPage extends BasePage {
     await waitForVisible(this.cartTable);
   }
 
+  // ── Validaciones ──────────────────────────────────────────────────────────
+
   async validateBookInCart(title: string): Promise<void> {
     console.log(`Validando que el libro "${title}" está en el carrito...`);
     const bookCell = this.cartBookTitles.filter({ hasText: title }).first();
     await waitForVisible(bookCell);
   }
+
+  // ── Acciones ──────────────────────────────────────────────────────────────
 
   async removeFirstBookFromCart(): Promise<void> {
     console.log('Eliminando el primer libro del carrito...');

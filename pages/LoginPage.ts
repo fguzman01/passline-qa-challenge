@@ -30,9 +30,13 @@ export class LoginPage extends BasePage {
     this.authErrorMessage = page.locator('//div[contains(@class,"alert") and contains(.,"Authentication Error")]/p');
   }
 
+  // ── Navegación ────────────────────────────────────────────────────────────
+
   async open(): Promise<void> {
     await this.navigate('/users/login');
   }
+
+  // ── Esperas ───────────────────────────────────────────────────────────────
 
   async waitUntilLoaded(): Promise<void> {
     await waitForVisible(this.title);
@@ -40,6 +44,8 @@ export class LoginPage extends BasePage {
     await waitForVisible(this.passwordInput);
     await waitForVisible(this.submitButton);
   }
+
+  // ── Acciones ──────────────────────────────────────────────────────────────
 
   async enterEmail(email: string): Promise<void> {
     console.log(`Ingresando email: ${email}`);
@@ -67,7 +73,9 @@ export class LoginPage extends BasePage {
     await safeClick(this.backToStoreLink);
   }
 
-    async waitForAuthenticationError(): Promise<void> {
+  // ── Validaciones ──────────────────────────────────────────────────────────
+
+  async waitForAuthenticationError(): Promise<void> {
     await waitForVisible(this.authErrorAlert);
   }
 
