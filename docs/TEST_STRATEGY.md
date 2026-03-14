@@ -96,15 +96,5 @@ Los datos se guardan en un JSON con entradas etiquetadas:
 | API de portadas (OpenLibrary) | Es un servicio externo que está fuera del control del proyecto |
 | Responsive / mobile | El framework apunta a viewport de escritorio, no se configuró mobile |
 
----
 
-## 7. Riesgos y limitaciones
-
-| Riesgo | Impacto | Detalle |
-|--------|---------|---------|
-| La app devuelve HTML en vez de JSON | Medio | Los tests de API buscan texto en el HTML, lo que los hace más frágiles ante cambios de UI |
-| Requiere entorno local activo | Alto | Los tests dependen de que la app esté corriendo en `localhost:5050` |
-| Sin pipeline CI/CD configurado | Medio | Los tests se ejecutan manualmente; no hay integración continua |
-| Locators pueden romperse | Bajo | Si cambia mucho la estructura HTML, algunos selectores XPath o CSS pueden fallar |
-| Workers en 1 | Bajo | Se desactivó la ejecución paralela para evitar conflictos de estado en el carrito |
 

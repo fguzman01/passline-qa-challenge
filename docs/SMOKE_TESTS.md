@@ -60,26 +60,4 @@ Los casos elegidos para smoke cumplen con estas condiciones:
 
 Los smoke tests no reemplazan a los E2E ni a los API tests. Son el primer filtro: si pasan, tiene sentido correr el resto.
 
----
 
-## 5. Alcance no cubierto por smoke
-
-Los siguientes flujos quedan deliberadamente fuera de la smoke suite porque son más largos, tienen más pasos y pertenecen a la cobertura E2E:
-
-| Funcionalidad | Suite que la cubre |
-|---------------|--------------------|
-| Flujo completo del carrito | E2E |
-| Detalle de libro | E2E |
-| Checkout con Stripe | No cubierto (fuera de alcance) |
-| Notificaciones por email | No cubierto (fuera de alcance) |
-| Integraciones externas | No cubierto (fuera de alcance) |
-
-La smoke suite debe mantenerse mínima. Agregarle flujos complejos le quita velocidad y estabilidad, que son sus principales ventajas.
-
----
-
-## 6. Conclusión
-
-Con solo dos tests, la smoke suite cubre los dos puntos de falla más críticos del sistema: que la app cargue y que el login funcione. Es el primer check que debería correr después de cualquier deploy o cambio de entorno, y su resultado define si tiene sentido continuar con la suite completa.
-
-Dentro del MVP de automatización, esta suite aporta valor inmediato con un costo de mantenimiento muy bajo.

@@ -39,7 +39,7 @@ Esto es suficiente para detectar errores críticos del backend sin depender del 
 |-------|---------|
 | Endpoint | `POST /users/login` |
 | Validación | Status no es 302, HTML contiene `"Authentication Error"` |
-| Riesgo cubierto | El sistema permite acceso con contraseña incorrecta o no muestra el error |
+
 
 ---
 
@@ -50,7 +50,7 @@ Esto es suficiente para detectar errores críticos del backend sin depender del 
 | Endpoint | `POST /users/login` |
 | Validación | Status 200, HTML contiene el nombre de usuario autenticado |
 | Datos | Obtenidos desde `LoginDataProvider.getByTag("valid")` |
-| Riesgo cubierto | El login falla para un usuario registrado o no redirige al dashboard |
+
 
 ---
 
@@ -60,29 +60,20 @@ Esto es suficiente para detectar errores críticos del backend sin depender del 
 |-------|---------|
 | Endpoints | `POST /users/login`, `GET /books`, `POST /users/cart/{id}?_method=PUT`, `GET /users/dashboard`, `POST /users/cart/{id}/delete?_method=DELETE` |
 | Validación | Carrito contiene el libro después de agregarlo; carrito vacío después de eliminarlo |
-| Riesgo cubierto | El flujo de agregar/eliminar del carrito está roto a nivel servidor |
+
 
 El `bookId` se extrae dinámicamente del HTML de `/books` usando una expresión regular sobre los `href` de los botones "Book Details". Esto permite que el test funcione aunque el ID cambie entre entornos.
 
 ---
 
-## 4. Justificación de la selección
+## 4. Poque de la selección
 
 Estos endpoints fueron priorizados porque representan los flujos críticos del sistema:
 
-- **`/books`** es la página principal; si falla, nada funciona.
+- **`/books`** es la página principal; si falla, no se puede avanzar a funcionalidad cr´tica de la app
 - **`/users/login`** es la puerta de entrada para cualquier acción autenticada.
 - El **flujo del carrito** es el core del negocio de la aplicación.
 
 Validarlos a nivel API permite detectar regresiones en el backend antes de correr los tests E2E más lentos, y también sirve como cobertura adicional independiente del navegador.
 
----
 
-## 5. Limitaciones
-
-| Limitación | Detalle |
-|------------|---------|
-| No hay respuestas JSON | Todas las validaciones se basan en texto HTML; un cambio de copy puede romper un test aunque la lógica esté bien |
-| Stripe / Checkout | No se probó el flujo de pago porque requiere credenciales reales de Stripe y un entorno sandbox configurado |
-| Notificaciones por email | No hay infraestructura disponible para capturar emails en entorno local |
-| Sesión entre requests | La sesión se mantiene automáticamente dentro del mismo contexto de Playwright; no se probó expiración ni sesiones concurrentes |

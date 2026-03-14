@@ -72,22 +72,4 @@ La automatización E2E está organizada en capas para mantener el código limpio
 
 Los tests llaman a flows, los flows usan páginas, y las páginas usan helpers. Esto mantiene cada capa con una sola responsabilidad.
 
----
 
-## 5. Alcance no cubierto
-
-| Funcionalidad | Motivo |
-|---------------|--------|
-| Checkout con Stripe | Requiere integración con sandbox de pago externo y credenciales reales |
-| Notificaciones por email | No hay infraestructura de captura de emails en entorno local |
-| Órdenes confirmadas | Depende del checkout completo, que está fuera del alcance |
-| Integraciones externas | Portadas de libros (OpenLibrary), servicios de terceros sin control propio |
-| Mobile / responsive | El framework apunta a viewport de escritorio |
-
----
-
-## 6. Conclusión
-
-La cobertura E2E implementada cubre los flujos de mayor riesgo del sistema: autenticación y gestión del carrito. Usar la arquitectura Page + Flow + DataProvider permite que los tests sean fáciles de leer, de mantener y de extender cuando se agreguen nuevos flujos al producto.
-
-El siguiente paso natural sería agregar cobertura del flujo de checkout una vez que el entorno de pagos esté disponible para pruebas.

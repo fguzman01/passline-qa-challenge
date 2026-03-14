@@ -143,6 +143,8 @@ npx playwright test --ui
 
 ## 10. Ver el reporte de resultados
 
+### Reporte HTML de Playwright
+
 Después de cada ejecución, Playwright genera un reporte HTML. Para abrirlo:
 
 ```bash
@@ -150,6 +152,23 @@ npx playwright show-report
 ```
 
 Se abre en el navegador con el detalle de cada test: estado, duración, capturas en caso de error y trazas de ejecución.
+
+### Reporte Allure
+
+Cada ejecución genera automáticamente los archivos de resultado en la carpeta `allure-results/`. Para visualizarlos:
+
+```bash
+npx allure serve allure-results
+```
+
+Este comando genera el reporte y abre un servidor local en el navegador. El reporte Allure muestra:
+
+- **Tests ejecutados** con estado (passed / failed / broken)
+- **Steps** nombrados por cada método de flow (ej. `Navegar a página de login`, `Ingresar credenciales`, etc.)
+- **Screenshots adjuntos** al final de cada step para reconstruir visualmente la ejecución
+- **Duración** por test y por step
+
+> **Requisito:** Allure CLI requiere Java 11 o superior instalado en el sistema.
 
 ---
 

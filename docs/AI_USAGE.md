@@ -40,10 +40,4 @@ Todas las sugerencias generadas por Copilot fueron:
 
 Las decisiones de diseño, organización del proyecto y cobertura de pruebas fueron definidas manualmente.
 
----
 
-## Conclusión
-
-Las herramientas de inteligencia artificial fueron utilizadas como apoyo para mejorar la productividad durante el desarrollo.
-
-Sin embargo, el diseño de la solución, la implementación final del framework de automatización y la selección de casos de prueba fueron realizados y validados manualmente.
