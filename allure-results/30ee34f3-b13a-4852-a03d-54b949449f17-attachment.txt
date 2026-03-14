@@ -1,0 +1,3 @@
+Enviando POST /users/login con usuario inválido: testbook@yopmail.com
+Status recibido: 200
+Validando que el HTML contiene "Authentication Error"...

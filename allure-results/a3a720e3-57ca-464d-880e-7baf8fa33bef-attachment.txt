@@ -1,0 +1,3 @@
+Enviando POST /users/login con usuario válido: testbook@yopmail.com
+Status recibido: 200
+Validando nombre usuario autenticado en el HTML del dashboard: testbook...

@@ -1,0 +1,4 @@
+Ingresando email: testbook@yopmail.com
+Ingresando password: 1234567
+Enviando formulario de login
+locator('//div[contains(@class,"alert") and contains(.,"Authentication Error")]/p')

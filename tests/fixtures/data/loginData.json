@@ -1,0 +1,16 @@
+[
+  {
+    "tag": "valid",
+    "email": "testbook@yopmail.com",
+    "password": "123456",
+    "expectedResult": "success",
+    "username": "testbook"
+  },
+  {
+    "tag": "invalid",
+    "email": "testbook@yopmail.com",
+    "password": "1234567",
+    "expectedResult": "error",
+    "username": ""
+  }
+]
